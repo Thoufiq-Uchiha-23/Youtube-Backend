@@ -12,5 +12,8 @@
     "Youtube"
   ],
   "author": "Thoufiq",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
 }
