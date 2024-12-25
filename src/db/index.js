@@ -1,10 +1,33 @@
 import mongoose from "mongoose";
-import { DB_NAME } from "../constants";
+import { DB_NAME } from "../constants.js";
 
-const connectDB = aysnc () => {
-    try {
-        await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`)
-    } catch (error) {
-        console.log("MONGODB connection error", error)
-    }
+// const connectDB = async () => {
+//   try {
+//     const connectionInstance = await mongoose.connect(
+//       `${process.env.MONGO_URI}/${DB_NAME}`
+//     );
+//     console.log(
+//       `\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`
+//     );
+//     console.log("YOOOOOOO");
+//   } catch (error) {
+//     console.log("MONGODB connection error", error);
+//   }
+// };
+const connectDB = async () => {
+console.log("connectDB function called"); // Log function call
+try {
+  const connectionInstance = await mongoose.connect(
+    `${process.env.MONGO_URI}/${DB_NAME}`
+  );
+  console.log(
+    `\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`
+  );
+} catch (error) {
+  console.log("MONGODB connection FAILED", error);
+  process.exit(1)
 }
+};
+
+console.log("Hello")
+export default connectDB
