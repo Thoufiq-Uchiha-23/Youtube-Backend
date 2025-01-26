@@ -29,5 +29,4 @@ try {
 }
 };
 
-console.log("Hello")
 export default connectDB
